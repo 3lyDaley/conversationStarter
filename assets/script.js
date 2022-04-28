@@ -1,24 +1,25 @@
 var adviceContainer = document.querySelector('#advice');
 var funFactContainer = document.querySelector('#randomFact-container');
 var quotationContainer = document.querySelector("#quotationContainer")
-var quoteArr=[];
 var adviceUrl = "https://api.adviceslip.com/advice"
 var funFactUrl = "https://api.aakhilv.me/fun/facts"
-var quoteGardenUrl = "https://quote-garden.herokuapp.com/api/v3/quotes?per_page=1&limit=20"
+var quoteGardenUrl = "https://quote-garden.herokuapp.com/api/v3/quotes?per_page=1&limit=10"
 
 fetch(quoteGardenUrl).then(function(response) {
   response.json().then(function(data) {
     console.log(data);
+
     var famousQuote= document.createElement('div');
-    for (var i=0; i < 3; i++ ){
+    for (var i=0; i < data.data.length; i++ ){
+      var random = Math.floor(Math.random() * data.data.length);
 
-      var quote =  data[i].quoteText;
-      quoteArr.push(quote);
-      console.log(quoteArr);
+      var quote =  data.data[random].quoteText;
+      console.log(quote);
+      break;
     }
-    // famousQuote.innerHTML ="<q>"+ quote +"</q>"
+    famousQuote.innerHTML ="<q>"+ quote +"</q>"
 
-    // quotationContainer.appendChild(famousQuote);
+    quotationContainer.appendChild(famousQuote);
   });
 });
 
