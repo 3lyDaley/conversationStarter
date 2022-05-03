@@ -6,11 +6,15 @@ var quotationContainer = document.querySelector("#quotationContainer");
 var gifContainer = document.querySelector('#gifContainer');
 var tdihContainer = document.querySelector('#TDIH-Container');
 
+// modal variables 
+var adviceModal = document.querySelector('#adviceModal');
+var adviceModalBody = document.querySelector('#adviceModalBody');
+
 // variables for each API
 var adviceUrl = "https://api.adviceslip.com/advice";
 var funFactUrl = "https://api.aakhilv.me/fun/facts";
 var quoteGardenUrl = "https://quote-garden.herokuapp.com/api/v3/quotes?per_page=1&limit=10";
-var historyUrl = "http://history.muffinlabs.com/date";
+var historyUrl = "http://history.muffinlabs.com/date?no-cors";
 
 
 
@@ -61,8 +65,6 @@ var getThisDay = function () {
     });
   });
 }
-getThisDay();
-
 
 
 var getQuotation = function() {
@@ -108,14 +110,18 @@ var getAdvice = function() {
 
   fetch(adviceUrl).then(function(response) {
     response.json().then(function(data) {
-      
+
       // dont need random number for this data (already randomized)
-      var advicePiece = document.createElement('h4');
-      advicePiece.textContent = data.slip.advice;
-      adviceContainer.appendChild(advicePiece);      
-      
+      document.querySelector('#adviceBtn').addEventListener("click", function(){
+        document.adviceModal.adviceModalBody.querySelector('#adviceModalBody').innerHTML= '<p>' + data.slip.advice + '</p>';
+      });
+      adviceModal.hidden = "false";
     });
   });
 }
 
-getAdvice(); getFunFact(); getQuotation(); getThisDay()
+document.querySelector('#adviceBtn').addEventListener("click", getAdvice); 
+
+
+
+getFunFact(); getQuotation(); getThisDay()
