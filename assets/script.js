@@ -12,19 +12,20 @@ var adviceModalBody = document.querySelector('#adviceModalBody');
 var tdihModal = document.querySelector('#tdih-Modal');
 var tdihModalBody = document.querySelector('#tdih-ModalBody');
 
-
+var duration = 5000;
 // variables for each API
 var adviceUrl = "https://api.adviceslip.com/advice";
 var funFactUrl = "https://api.aakhilv.me/fun/facts";
 var quoteGardenUrl = "https://quote-garden.herokuapp.com/api/v3/quotes?per_page=1&limit=10";
-var historyUrl = "http://history.muffinlabs.com/date?no-cors";
+var historyUrl = "http://history.muffinlabs.com/date";
 
 
   
-  var getThisDay = function () {
+$('#thisDayBtn').on("click", function(e) {
     
     fetch(historyUrl).then(function(response){
       response.json().then(function(data){
+        
         
         // variables to hold length of each set of arrays
         var eventsLength = data.data.Events.length;
@@ -52,28 +53,32 @@ var historyUrl = "http://history.muffinlabs.com/date?no-cors";
           var numBirth = Math.floor(Math.random() * birthLength);
           var thisDayBirth= data.data.Births[numBirth].text;
           var thisDayBirthYear = data.data.Births[numBirth].year;
-          
+          break;
+        }  
           
           // HTML and append to div container hardcoded in index.HTML
           // div container to hold data fetched in for loops
-          $('<p>' + thisDayBirth + '</p>').appendTo($('#tdifModalBody'));
-        
-           "<p><b> An event of varying signifigance:</b> " + thisDayEvent + " ( " + thisDayEventYear + ") </br><b>" + 
-          thisDayBirth + "</b> was born on this day in <b>" + thisDayBirthYear + ". </b></br><b> " 
-          + thisDayDeath + "</b> died on this day in <b>" + thisDayDeathYear + ".</b></p>"
-            
+          
+
+
+        $( "<p><b> An event of varying signifigance:</b> " + thisDayEvent + " ( " + thisDayEventYear + ") </br><b>" + 
+        thisDayBirth + "</b> was born on this day in <b>" + thisDayBirthYear + ". </b></br><b> " 
+        + thisDayDeath + "</b> died on this day in <b>" + thisDayDeathYear + ".</b></p>").appendTo($('.thisDayHere'));
+        $('.thisDayHere').show();
+          
+          $("#thisDayBtn").on('click', function(e){
+            $('.thisDayHere').hide();
+            $(".thisDayHere").html('');
+          }); 
           
         
-          // $("#tdihModal").on('hidden.bs.modal', function(){
-          //   $("#tdihModalBody").html('');
-          // });
           
           
-          break; 
-        }  
+          
+           
       });
     });
-  }
+  });
   
   
   var getQuotation = function() {
@@ -105,22 +110,24 @@ var historyUrl = "http://history.muffinlabs.com/date?no-cors";
     
     fetch(funFactUrl).then(function(response) {
       response.json().then(function(data) {
-        
-        // dont need random number for this data (already randomized)
-        var funFact= document.createElement('h4');
-        funFact.textContent = data;
-        funFactContainer.appendChild(funFact);
+        console.log(data)
+       
+       var funFact = data
+        $('<p>' + funFact + '</p>').appendTo($('.funFactHere'));
+        $('.funFactHere').show();
+          
+          $("#randomfact-container").on('click', function(e){
+            $('.funFactHere').hide();
+            $(".funFactHere").html('');
+          }); 
+          
 
-        // $('<p>' + funFact + '</p>').appendTo($('#adviceModalBody'));
-        
-        // $("#adviceModal").on('hidden.bs.modal', function(){
-        //   $("#adviceModalBody").html('');
-        
+      
       });
     });
   }
   
-  var getAdvice = function() {
+  $('#adviceBtn').on("click", function(e) {
     
     fetch(adviceUrl).then(function(response) {
       response.json().then(function(data) {
@@ -128,20 +135,42 @@ var historyUrl = "http://history.muffinlabs.com/date?no-cors";
         // dont need random number for this data (already randomized)
         var advice = data.slip.advice;
         
-        $('<p>' + advice + '</p>').appendTo($('#adviceModalBody'));
-        
-        $("#adviceModal").on('hidden.bs.modal', function(){
-          $("#adviceModalBody").html('').removeData(bs.modal);
+       
+        $('<p>' + advice + '</p>').appendTo($('.adviceHere'));
+        $('.adviceHere').show();
+          
+          $("#advice").on('click', function(e){
+            $('.adviceHere').hide();
+            $(".adviceHere").html('');
+          }); 
+          
         });
       });
-      
-    });
+  });     
+        
+            
 
-  }
+       
+        
+        // $('<p>' + advice + '</p>').appendTo($('.adviceHere'));
+        // $("#adviceBtn").on("click", function(e){
+        //   $('.adviceHere').show();
+        // })
+
+        
+        // $('.advice').on("click", function(e){
+        //   $('.adviceHere').html("");
+        //   console.log('clicked');
+        // });
+
+
+  
+
     
   
-  document.querySelector('#adviceBtn').addEventListener("click", getAdvice); 
-  document.querySelector('#tdih-Btn').addEventListener("click", getThisDay);
+  
+    
+   
     
     
 

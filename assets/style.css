@@ -35,6 +35,10 @@ header {
   font-size: 2rem;
   background-size: 150%;
   position: relative;
+
+}
+.navButton a {
+  color: #CC0000;
 }
 
 #adviceBtn {  
@@ -45,10 +49,11 @@ header {
 
 
 
-#tdih-Btn{
+#thisDayBtn{
   background-image: url(./photos/btn-image-2.png);
-  height: 300px;
-  width: 150px
+  background-size: cover;
+  height: 250px;
+  width: 175px
 }
 
 
