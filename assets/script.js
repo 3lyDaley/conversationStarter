@@ -1,5 +1,8 @@
 
 // variables for all the parent containers in index.HTML
+var kanyeContainer = document.querySelector('#kanye-container');
+var dadContainer = document.querySelector('#dad-joke-container');
+var chuckContainer = document.querySelector('#chuck-norris-container');
 var adviceContainer = document.querySelector('#advice');
 var funFactContainer = document.querySelector('#randomFact-container');
 var quotationContainer = document.querySelector("#quotationContainer");
@@ -7,6 +10,9 @@ var gifContainer = document.querySelector('#gifContainer');
 var tdihContainer = document.querySelector('#TDIH-Container');
 
 // variables for each API
+var kanyeUrl = "https://api.kanye.rest";
+var dadUrl = "https://icanhazdadjoke.com";
+var chuckUrl = "https://api.chucknorris.io/jokes/random";
 var adviceUrl = "https://api.adviceslip.com/advice";
 var funFactUrl = "https://api.aakhilv.me/fun/facts";
 var quoteGardenUrl = "https://quote-garden.herokuapp.com/api/v3/quotes?per_page=1&limit=10";
@@ -118,4 +124,51 @@ var getAdvice = function() {
   });
 }
 
-getAdvice(); getFunFact(); getQuotation(); getThisDay()
+var getKanye = function() {
+
+  fetch(kanyeUrl).then(function(response) {
+    response.json().then(function(data) {
+      
+      // dont need random number for this data (already randomized)
+      var kanyeQuote = document.createElement('h4');
+      kanyeQuote.textContent = '"' + data.quote + '"';
+      kanyeContainer.appendChild(kanyeQuote);      
+      
+    });
+  });
+}
+
+var getDadJoke = function() {
+
+  fetch(dadUrl, {
+    headers : { 
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+     }
+  }).then(function(response) {
+    response.json().then(function(data) {
+      
+      // dont need random number for this data (already randomized)
+      var dadJoke = document.createElement('h4');
+      dadJoke.textContent = data.joke;
+      dadContainer.appendChild(dadJoke);      
+      
+    });
+  });
+}
+
+var getChuck = function() {
+
+  fetch(chuckUrl).then(function(response) {
+    response.json().then(function(data) {
+      
+      // dont need random number for this data (already randomized)
+      var chuckFacts = document.createElement('h4');
+      chuckFacts.textContent = data.value;
+      chuckContainer.appendChild(chuckFacts);      
+      
+    });
+  });
+}
+
+getChuck(); getDadJoke(); getKanye(); getAdvice(); getFunFact(); getQuotation(); getThisDay()
