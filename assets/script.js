@@ -1,17 +1,9 @@
-
-<<<<<<< HEAD
 // variables for all the parent containers in index.HTML
 var kanyeContainer = document.querySelector('#kanye-container');
 var dadContainer = document.querySelector('#dad-joke-container');
 var chuckContainer = document.querySelector('#chuck-norris-container');
-var adviceContainer = document.querySelector('#advice');
-var funFactContainer = document.querySelector('#randomFact-container');
-var quotationContainer = document.querySelector("#quotationContainer");
-var gifContainer = document.querySelector('#gifContainer');
-var tdihContainer = document.querySelector('#TDIH-Container');
 
-=======
->>>>>>> develop
+
 // variables for each API
 var kanyeUrl = "https://api.kanye.rest";
 var dadUrl = "https://icanhazdadjoke.com";
@@ -148,81 +140,53 @@ $('#thisDayBtn').on("click", function(e) {
         });
       });
   });     
-        
             
 
-       
-        
-        // $('<p>' + advice + '</p>').appendTo($('.adviceHere'));
-        // $("#adviceBtn").on("click", function(e){
-        //   $('.adviceHere').show();
-        // })
+// var getKanye = function() {
 
-        
-        // $('.advice').on("click", function(e){
-        //   $('.adviceHere').html("");
-        //   console.log('clicked');
-        // });
-
-
-  
-
-    
-  
-  
-    
-   
-    
-    
-
-<<<<<<< HEAD
-var getKanye = function() {
-
-  fetch(kanyeUrl).then(function(response) {
-    response.json().then(function(data) {
+//   fetch(kanyeUrl).then(function(response) {
+//     response.json().then(function(data) {
       
-      // dont need random number for this data (already randomized)
-      var kanyeQuote = document.createElement('h4');
-      kanyeQuote.textContent = '"' + data.quote + '"';
-      kanyeContainer.appendChild(kanyeQuote);      
+//       // dont need random number for this data (already randomized)
+//       var kanyeQuote = document.createElement('h4');
+//       kanyeQuote.textContent = '"' + data.quote + '"';
+//       kanyeContainer.appendChild(kanyeQuote);      
       
-    });
-  });
-}
+//     });
+//   });
+// }
 
-var getDadJoke = function() {
+// var getDadJoke = function() {
 
-  fetch(dadUrl, {
-    headers : { 
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-     }
-  }).then(function(response) {
-    response.json().then(function(data) {
+//   fetch(dadUrl, {
+//     headers : { 
+//       'Content-Type': 'application/json',
+//       'Accept': 'application/json'
+//      }
+//   }).then(function(response) {
+//     response.json().then(function(data) {
       
-      // dont need random number for this data (already randomized)
-      var dadJoke = document.createElement('h4');
-      dadJoke.textContent = data.joke;
-      dadContainer.appendChild(dadJoke);      
+//       // dont need random number for this data (already randomized)
+//       var dadJoke = document.createElement('h4');
+//       dadJoke.textContent = data.joke;
+//       dadContainer.appendChild(dadJoke);      
       
-    });
-  });
-}
+//     });
+//   });
+// }
 
-var getChuck = function() {
+// var getChuck = function() {
 
-  fetch(chuckUrl).then(function(response) {
-    response.json().then(function(data) {
+//   fetch(chuckUrl).then(function(response) {
+//     response.json().then(function(data) {
       
-      // dont need random number for this data (already randomized)
-      var chuckFacts = document.createElement('h4');
-      chuckFacts.textContent = data.value;
-      chuckContainer.appendChild(chuckFacts);      
+//       // dont need random number for this data (already randomized)
+//       var chuckFacts = document.createElement('h4');
+//       chuckFacts.textContent = data.value;
+//       chuckContainer.appendChild(chuckFacts);      
       
-    });
-  });
-}
+//     });
+//   });
+//}
 
-getChuck(); getDadJoke(); getKanye(); getAdvice(); getFunFact(); getQuotation(); getThisDay()
-=======
->>>>>>> develop
+// getChuck(); getDadJoke(); getKanye();
