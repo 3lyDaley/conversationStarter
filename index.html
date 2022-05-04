@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
   <link rel="stylesheet" href="./assets/style.css"/>
   <title>CoNvErSaTe Me</title>
 
@@ -33,6 +35,19 @@
   <div id="jokes-container"></div>
   <div id="sport-container"></div>
   <div id="science-container"></div>
+
+  <!-- create journal -->
+  <div>
+    <button type="button" class="button">
+      <span class="oi oi-pencil "></span>
+    </button>
+    <form  id="journal" class="journal-container">
+      <h3>
+        Journal Entry
+      </h3>
+      <textarea name="journal-entry" id="" cols="50" rows="30"></textarea>
+    </form>
+  </div>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
