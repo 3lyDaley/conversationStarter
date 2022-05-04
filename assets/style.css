@@ -1,0 +1,118 @@
+* {
+  padding: 0 px;
+  box-sizing: border-box;
+}
+
+html{
+  margin: 20px;
+  height: 100%
+}
+body{
+  background: radial-gradient(rgb(234, 193, 218), rgb(245, 239, 196));
+  background-size: 300% 500%;
+  background-repeat: no-repeat;
+  margin: 0%;
+  animation: gradient 20s linear  infinite;
+  animation-direction: alternate-reverse;
+}
+@keyframes gradient {
+  0% {background-position: 0%}
+  100% {background-position: 100%}
+}
+header {
+  display: flex;
+  justify-content: center;
+  min-height: 25vh;
+}
+
+/* buttons */
+.btn{
+  border: none;
+  color: #CC0000;
+  font-family: 'IBM Plex Sans Serif', sans-serif;
+}
+
+.navButton {
+  height: 200px;
+  width: 300px;
+  font-size: 2rem;
+  background-size: 150%;
+  position: relative;
+
+}
+.navButton a {
+  color: #CC0000;
+}
+#adviceBtn {  
+  background-image: url(./photos/btn-image-1.png);
+  border-radius: 50%;
+  height: 300px
+}
+
+#thisDayBtn{
+  background-image: url(./photos/btn-image-2.png);
+  background-size: cover;
+  height: 250px;
+  width: 175px
+}
+
+#factBtn {
+  background-image: url(./photos/btn-image-3.png);
+  width: 200px;
+  border-radius: 10px;
+}
+
+#quoteBtn {
+  background-image: url(./photos/btn-image-4.png);
+  width:400;
+}
+
+.parentDiv {
+  margin: 20px;
+}
+
+.infoDiv {
+  font-family: 'Libre Baskerville', serif;
+  text-align: center;
+  font-size: 4vh;
+  font-style: italic;
+  color: #008060;
+}
+#randomFactContainer {
+  padding-left: 180px;
+}
+
+.thisDayContainer {
+  font-size: 2vh;
+}
+#advice {
+  margin-right: 80px;
+}
+
+footer {
+  margin: 100px;
+}
+
+
+@media screen and (max-width: 980px) {
+ 
+  #randomFactContainer, #advice {
+    margin: auto auto;
+  } 
+  .parentDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #quoteContainer, #advice {
+    flex-direction: column-reverse;
+  } 
+
+  html{
+    background-size: 6000px;
+  }
+  footer {
+    margin: 100px 0 0 0;
+  }
+}
