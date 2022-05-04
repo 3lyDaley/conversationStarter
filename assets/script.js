@@ -9,6 +9,9 @@ var tdihContainer = document.querySelector('#TDIH-Container');
 // modal variables 
 var adviceModal = document.querySelector('#adviceModal');
 var adviceModalBody = document.querySelector('#adviceModalBody');
+var tdihModal = document.querySelector('#tdih-Modal');
+var tdihModalBody = document.querySelector('#tdih-ModalBody');
+
 
 // variables for each API
 var adviceUrl = "https://api.adviceslip.com/advice";
@@ -27,7 +30,7 @@ var historyUrl = "http://history.muffinlabs.com/date?no-cors";
         var eventsLength = data.data.Events.length;
         var deathLength = data.data.Deaths.length;
         var birthLength = data.data.Births.length;
-        var thisDay = document.createElement('div');
+        
         
         // for loops for each category, structured to recieve a random array selection on every refresh
         // events category
@@ -53,15 +56,21 @@ var historyUrl = "http://history.muffinlabs.com/date?no-cors";
           
           // HTML and append to div container hardcoded in index.HTML
           // div container to hold data fetched in for loops
-          
-          thisDay.innerHTML =
-          "<p><b> An event of varying signifigance:</b> " + thisDayEvent + " ( " + thisDayEventYear + ") </br><b>" + 
+          $('<p>' + thisDayBirth + '</p>').appendTo($('#tdifModalBody'));
+        
+           "<p><b> An event of varying signifigance:</b> " + thisDayEvent + " ( " + thisDayEventYear + ") </br><b>" + 
           thisDayBirth + "</b> was born on this day in <b>" + thisDayBirthYear + ". </b></br><b> " 
           + thisDayDeath + "</b> died on this day in <b>" + thisDayDeathYear + ".</b></p>"
-          tdihContainer.appendChild(thisDay);
+            
+          
+        
+          // $("#tdihModal").on('hidden.bs.modal', function(){
+          //   $("#tdihModalBody").html('');
+          // });
+          
+          
           break; 
         }  
-        
       });
     });
   }
@@ -101,6 +110,11 @@ var historyUrl = "http://history.muffinlabs.com/date?no-cors";
         var funFact= document.createElement('h4');
         funFact.textContent = data;
         funFactContainer.appendChild(funFact);
+
+        // $('<p>' + funFact + '</p>').appendTo($('#adviceModalBody'));
+        
+        // $("#adviceModal").on('hidden.bs.modal', function(){
+        //   $("#adviceModalBody").html('');
         
       });
     });
@@ -111,14 +125,13 @@ var historyUrl = "http://history.muffinlabs.com/date?no-cors";
     fetch(adviceUrl).then(function(response) {
       response.json().then(function(data) {
         
-        console.log(data);
         // dont need random number for this data (already randomized)
         var advice = data.slip.advice;
         
         $('<p>' + advice + '</p>').appendTo($('#adviceModalBody'));
         
         $("#adviceModal").on('hidden.bs.modal', function(){
-          $("#adviceModalBody").html('');
+          $("#adviceModalBody").html('').removeData(bs.modal);
         });
       });
       
@@ -128,7 +141,7 @@ var historyUrl = "http://history.muffinlabs.com/date?no-cors";
     
   
   document.querySelector('#adviceBtn').addEventListener("click", getAdvice); 
-    
+  document.querySelector('#tdih-Btn').addEventListener("click", getThisDay);
     
     
 
