@@ -3,14 +3,9 @@
 var adviceContainer = document.querySelector('#advice');
 var funFactContainer = document.querySelector('#randomFact-container');
 var quotationContainer = document.querySelector("#quotationContainer");
-var gifContainer = document.querySelector('#gifContainer');
-var tdihContainer = document.querySelector('#TDIH-Container');
 
-// modal variables 
-var adviceModal = document.querySelector('#adviceModal');
-var adviceModalBody = document.querySelector('#adviceModalBody');
-var tdihModal = document.querySelector('#tdih-Modal');
-var tdihModalBody = document.querySelector('#tdih-ModalBody');
+
+
 
 var duration = 5000;
 // variables for each API
@@ -81,33 +76,37 @@ $('#thisDayBtn').on("click", function(e) {
   });
   
   
-  var getQuotation = function() {
-    
+  $('#quoteBtn').on("click", function(e) {
+    e.preventDefault();
     fetch(quoteGardenUrl).then(function(response) {
       response.json().then(function(data) {
         console.log(data);
         
         // gets random Quote from list and appends to parent Div
-        var famousQuote= document.createElement('div');
+        
         for (var i=0; i < data.data.length; i++ ){
           // to generate a random number 
           var random = Math.floor(Math.random() * data.data.length);
           
           var quote =  data.data[random].quoteText;
           var author = data.data[random].quoteAuthor;
-          famousQuote.innerHTML ="<q>"+ quote +"</q></br><h4> -" + author + "</h4>"
-          quotationContainer.appendChild(famousQuote);
           
           // only need this loop to run one time
           break;
         }
-        
+        $("<q>"+ quote +"</q></br><h4> -" + author + "</h4>").appendTo($('.quoteHere'));
+        $('.quoteHere').show();
+          
+          $("#quotationContainer").on('click', function(e){
+            $('.quoteHere').hide();
+            $(".quoteHere").html('');
+          }); 
       });
     });
-  }
+  });
   
-  var getFunFact = function() {
-    
+  $('#factBtn').on("click", function(e) {
+    e.preventDefault();
     fetch(funFactUrl).then(function(response) {
       response.json().then(function(data) {
         console.log(data)
@@ -116,7 +115,7 @@ $('#thisDayBtn').on("click", function(e) {
         $('<p>' + funFact + '</p>').appendTo($('.funFactHere'));
         $('.funFactHere').show();
           
-          $("#randomfact-container").on('click', function(e){
+          $("#randomFact-container").on('click', function(e){
             $('.funFactHere').hide();
             $(".funFactHere").html('');
           }); 
@@ -125,7 +124,7 @@ $('#thisDayBtn').on("click", function(e) {
       
       });
     });
-  }
+  });
   
   $('#adviceBtn').on("click", function(e) {
     

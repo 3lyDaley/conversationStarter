@@ -28,20 +28,20 @@
   </label>
   </button>
 
-  <div class="col-6 container adviceContainer" >
+  <div class="infoDiv col-6 container adviceContainer" >
     <div class="adviceHere" ></div>
   </div>
 </div> 
 
 
     <!-- THIS DAY IN HISTORY SECTION -->
-  <div class= "d-flex flex-row" id="TDIH-Container">
+  <div class= " d-flex flex-row" id="TDIH-Container">
       <button type="button"  id="thisDayBtn" class="navButton  btn btn-outline-light float-md-right" >
         <label>
           <a href='#'>THIS DAY IN HISTORY</a> 
         </label>
       </button>
-      <div class="col-6 container thisDayContainer" >
+      <div class="infoDiv col-6 container thisDayContainer" >
         <div class="thisDayHere" ></div>
       </div>
     </div>
@@ -53,22 +53,27 @@
 
 
     <!-- random fact section -->
-    <div id="randomFact-container">
+    <div class= " d-flex flex-row" id="randomFact-container">
       <button type="button"  id="factBtn" class="navButton btn btn-outline-light float-md-center">
         <label>
           <a href='#'>RANDOM FACTOID</a> 
         </label>
       </button>
-      <div class="col-6 container funFactContainer" >
+      <div class="infoDiv col-6 container funFactContainer" >
         <div class="funFactHere" ></div>
       </div>
     </div>
 
     <!-- quotation section -->
-    <div id="quotationContainer">
+    <div class=" d-flex flex-row" id="quotationContainer">
       <button type="button"  id="quoteBtn" class="navButton btn btn-outline-light" data-toggle="modal" data-target="#adviceModal">
-        <label>REPEATABLE QUOTES</label>
+        <label>
+        <a href="#">REPEATABLE QUOTES</a>  
+        </label>
       </button>
+      <div class="infoDiv col-6 container quoteContainer" >
+        <div class="quoteHere" ></div>
+      </div>
     </div>
 
     <!-- to be continued...-->
