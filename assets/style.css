@@ -29,7 +29,7 @@ header {
 .btn{
   border: none;
   color: #CC0000;
-  font-family: 'IBM Plex Serif', serif;
+  font-family: 'IBM Plex Sans Serif', sans-serif;
 }
 
 .navButton {
@@ -93,3 +93,26 @@ footer {
   margin: 100px;
 }
 
+
+@media screen and (max-width: 980px) {
+ 
+  #randomFactContainer, #advice {
+    margin: auto auto;
+  } 
+  .parentDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #quoteContainer, #advice {
+    flex-direction: column-reverse;
+  } 
+
+  html{
+    background-size: 6000px;
+  }
+  footer {
+    margin: 100px 0 0 0;
+  }
+}

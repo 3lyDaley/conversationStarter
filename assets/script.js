@@ -101,7 +101,7 @@ $('#thisDayBtn').on("click", function(e) {
         $('<p>' + funFact + '</p>').appendTo($('.funFactHere'));
         $('.funFactHere').show();
           
-          $("#randomFact-container").on('click', function(e){
+          $("#randomFactContainer").on('click', function(e){
             $('.funFactHere').hide();
             $(".funFactHere").html('');
           }); 
