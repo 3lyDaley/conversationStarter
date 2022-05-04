@@ -1,14 +1,19 @@
 * {
-  margin: 10px;
   padding: 0 px;
   box-sizing: border-box;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+html{
+  margin: 20px;
+  height: 100%
+}
 body{
-  background:radial-gradient(rgb(183, 217, 89), rgb(245, 239, 196));
-  background-size: 180% 100%;
-  animation: gradient 10s linear infinite;
-  animation-direction: alternate;
+  background: radial-gradient(rgb(234, 193, 218), rgb(245, 239, 196));
+  background-size: 200% 200%;
+  background-repeat: no-repeat;
+  margin: 0%;
+  animation: gradient 20s linear  infinite;
+  animation-direction: alternate-reverse;
 }
 @keyframes gradient {
   0% {background-position: 0%}
@@ -19,13 +24,37 @@ header {
   justify-content: center;
   min-height: 25vh;
 }
+.btn{
+  border: none;
+  color: #CC0000;
+}
 
-#adviceBtn {
+.navButton {
   height: 200px;
   width: 300px;
-  background-image: url(./photos/btn-image-1.png);
+  font-size: 2rem;
   background-size: 150%;
-  font-size: 65%;
+  position: relative;
+}
+
+#adviceBtn {  
+  background-image: url(./photos/btn-image-1.png);
+  border-radius: 50%;
+  height: 300px
 }
 
 
+
+#tdih-Btn{
+  background-image: url(./photos/btn-image-2.png);
+  height: 300px;
+}
+
+
+
+#factBtn {
+  background-image: url(./photos/btn-image-3.png);
+}
+#quoteBtn {
+  background-image: url(./photos/btn-image-4.png);
+}
