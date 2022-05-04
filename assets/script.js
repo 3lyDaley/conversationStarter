@@ -1,13 +1,4 @@
 
-// variables for all the parent containers in index.HTML
-var adviceContainer = document.querySelector('#advice');
-var funFactContainer = document.querySelector('#randomFact-container');
-var quotationContainer = document.querySelector("#quotationContainer");
-
-
-
-
-var duration = 5000;
 // variables for each API
 var adviceUrl = "https://api.adviceslip.com/advice";
 var funFactUrl = "https://api.aakhilv.me/fun/facts";
@@ -17,10 +8,11 @@ var historyUrl = "http://history.muffinlabs.com/date";
 
   
 $('#thisDayBtn').on("click", function(e) {
+  
+  e.preventDefault();
     
     fetch(historyUrl).then(function(response){
       response.json().then(function(data){
-        
         
         // variables to hold length of each set of arrays
         var eventsLength = data.data.Events.length;
@@ -56,21 +48,15 @@ $('#thisDayBtn').on("click", function(e) {
           
 
 
-        $( "<p><b> An event of varying signifigance:</b> " + thisDayEvent + " ( " + thisDayEventYear + ") </br><b>" + 
-        thisDayBirth + "</b> was born on this day in <b>" + thisDayBirthYear + ". </b></br><b> " 
-        + thisDayDeath + "</b> died on this day in <b>" + thisDayDeathYear + ".</b></p>").appendTo($('.thisDayHere'));
+        $( "<p> EVENT: " + thisDayEvent + " ( " + thisDayEventYear + ") </br></br>" + 
+        thisDayBirth + " was BORN on this day in " + thisDayBirthYear + ". </br></br> " 
+        + thisDayDeath + " DIED on this day in " + thisDayDeathYear + ".</p>").appendTo($('.thisDayHere'));
         $('.thisDayHere').show();
           
           $("#thisDayBtn").on('click', function(e){
             $('.thisDayHere').hide();
             $(".thisDayHere").html('');
-          }); 
-          
-        
-          
-          
-          
-           
+          });            
       });
     });
   });
@@ -127,7 +113,7 @@ $('#thisDayBtn').on("click", function(e) {
   });
   
   $('#adviceBtn').on("click", function(e) {
-    
+    e.preventDefault();
     fetch(adviceUrl).then(function(response) {
       response.json().then(function(data) {
         
