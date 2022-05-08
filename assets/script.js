@@ -76,6 +76,7 @@ $('#thisDayBtn').on("click", function(e) {
       response.json().then(function(data) {
         console.log(data);
         
+        
         // gets random Quote from list and appends to parent Div
         
         for (var i=0; i < data.data.length; i++ ){
@@ -90,14 +91,21 @@ $('#thisDayBtn').on("click", function(e) {
         }
         $("<q>"+ quote +"</q></br><h4> -" + author + "</h4>").appendTo($('.quoteHere'));
         $('.quoteHere').show();
-          
           $("#quotationContainer").on('click', function(e){
             $('.quoteHere').hide();
             $(".quoteHere").html('');
           }); 
+        });
       });
+      // create favorite button
+      var favbtn = document.createElement("button");
+      favbtn.innerHTML = "Favorite";
+  
+      // append it to quoteContainer
+      var quoteContainer = document.getElementById("quotationContainer");
+      quoteContainer.appendChild(favbtn);
     });
-  });
+    
   
   $('#factBtn').on("click", function(e) {
     e.preventDefault();
@@ -141,7 +149,6 @@ $('#thisDayBtn').on("click", function(e) {
       });
   });     
             
-
 // var getKanye = function() {
 
 //   fetch(kanyeUrl).then(function(response) {
