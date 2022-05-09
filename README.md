@@ -1,5 +1,3 @@
-# Conversation Assistant
-
 # Conversation Assistant live
 > Live demo [_here_](https://3lydaley.github.io/conversationStarter/). <!-- Project link here. -->
 
