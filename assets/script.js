@@ -97,6 +97,7 @@ $('#thisDayBtn').on("click", function(e) {
       });
       
   });
+});
   
   $('#factBtn').on("click", function(e) {
     e.preventDefault();
