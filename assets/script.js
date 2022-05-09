@@ -95,14 +95,7 @@ $('#thisDayBtn').on("click", function(e) {
             $(".quoteHere").html('');
           }); 
       });
-       // create favorite button
-       var favbtn = document.createElement("button");
-       favbtn.innerHTML = "Favorite";
- 
-       // append it to quoteContainer
-       var quoteContainer = document.getElementById("quotationContainer");
-       quoteContainer.appendChild(favbtn);
-    });
+      
   });
   
   $('#factBtn').on("click", function(e) {
