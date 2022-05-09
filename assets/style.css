@@ -12,12 +12,13 @@ body{
   background-size: 300% 500%;
   background-repeat: no-repeat;
   margin: 0%;
-  animation: gradient 20s linear  infinite;
+  animation: gradient 15s linear  infinite;
   animation-direction: alternate-reverse;
 }
 @keyframes gradient {
   0% {background-position: 0%}
-  100% {background-position: 100%}
+  50% {background-position: 90%}
+  100% {background-position: 0%}
 }
 header {
   display: flex;

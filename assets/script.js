@@ -74,7 +74,6 @@ $('#thisDayBtn').on("click", function(e) {
     e.preventDefault();
     fetch(quoteGardenUrl).then(function(response) {
       response.json().then(function(data) {
-        console.log(data);
         
         // gets random Quote from list and appends to parent Div
         
@@ -96,6 +95,13 @@ $('#thisDayBtn').on("click", function(e) {
             $(".quoteHere").html('');
           }); 
       });
+       // create favorite button
+       var favbtn = document.createElement("button");
+       favbtn.innerHTML = "Favorite";
+ 
+       // append it to quoteContainer
+       var quoteContainer = document.getElementById("quotationContainer");
+       quoteContainer.appendChild(favbtn);
     });
   });
   
@@ -103,7 +109,7 @@ $('#thisDayBtn').on("click", function(e) {
     e.preventDefault();
     fetch(funFactUrl).then(function(response) {
       response.json().then(function(data) {
-        console.log(data)
+
        
        var funFact = data
         $('<p>' + funFact + '</p>').appendTo($('.funFactHere'));
